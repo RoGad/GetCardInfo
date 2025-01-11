@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CardInfoApp</string>
+    <string name="card_number">Card Number</string>
+    <string name="enter_card_number_info">Enter your the numbers of BIN</string>
+    <string name="input_bin">Input your BIN</string>
+    <string name="input">Input</string>
 </resources>
