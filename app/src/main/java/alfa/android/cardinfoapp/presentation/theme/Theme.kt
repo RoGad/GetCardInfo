@@ -1,4 +1,4 @@
-package alfa.android.cardinfoapp.ui.theme
+package alfa.android.cardinfoapp.presentation.theme
 
 import android.app.Activity
 import android.os.Build

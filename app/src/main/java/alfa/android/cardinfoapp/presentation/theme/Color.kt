@@ -1,4 +1,4 @@
-package alfa.android.cardinfoapp.ui.theme
+package alfa.android.cardinfoapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
