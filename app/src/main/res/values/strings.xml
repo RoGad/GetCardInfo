@@ -4,4 +4,7 @@
     <string name="enter_card_number_info">Enter your the numbers of BIN</string>
     <string name="input_bin">Input your BIN</string>
     <string name="input">Input</string>
+    <string name="manual_input_bin_screen">Input BIN</string>
+    <string name="show_history_screen">Show history</string>
+    <string name="rule_of_enter">Enter the first 6 to 8 digits of a card number</string>
 </resources>
