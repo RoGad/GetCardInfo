@@ -2,11 +2,8 @@ package alfa.android.cardinfoapp.presentation.ui.screens
 
 import CardNumberVisual
 import alfa.android.cardinfoapp.R
-import alfa.android.cardinfoapp.presentation.theme.Roboto
 import alfa.android.cardinfoapp.presentation.theme.Typography
-import alfa.android.cardinfoapp.presentation.theme.lightGray
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -19,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment

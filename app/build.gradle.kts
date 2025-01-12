@@ -80,4 +80,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    //Animation
+    implementation(libs.accompanist.navigation.animation)
 }

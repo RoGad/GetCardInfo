@@ -6,5 +6,7 @@
     <string name="input">Input</string>
     <string name="manual_input_bin_screen">Input BIN</string>
     <string name="show_history_screen">Show history</string>
+    <string name="tittle_app">CardInfo</string>
+    <string name="info_app">App for obtaining information about a bank card</string>
     <string name="rule_of_enter">Enter the first 6 to 8 digits of a card number</string>
 </resources>
