@@ -10,6 +10,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -30,7 +32,7 @@ class MainActivity : ComponentActivity() {
                     popExitTransition = { fadeOut(targetAlpha = 1f) }
                 ) {
                     composable("main_screen") { MainScreen(navController) }
-                    composable("input_bin") { InputBIN() }
+                    composable("input_bin") { InputBIN(navController) }
                     composable("list_history_bin") { ListHistoryBIN() }
                 }
             }
