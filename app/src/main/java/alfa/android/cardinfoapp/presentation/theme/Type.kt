@@ -33,5 +33,11 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         color = Color.Gray
+    ),
+    labelMedium = TextStyle(
+        fontFamily = Roboto,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp,
+        color = White
     )
 )

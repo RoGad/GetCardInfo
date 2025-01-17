@@ -1,6 +1,8 @@
 package alfa.android.cardinfoapp.presentation.ui.components
 
 import alfa.android.cardinfoapp.domain.model.CardInfo
+import alfa.android.cardinfoapp.presentation.theme.Typography
+import alfa.android.cardinfoapp.presentation.theme.White
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -34,17 +36,26 @@ fun HistoryItem(
         ) {
             Text(
                 text = "BIN: $bin",
-                style = MaterialTheme.typography.titleMedium
+                style = Typography.titleMedium
             )
             Spacer(modifier = Modifier.height(8.dp))
             cardInfo.scheme?.let {
-                Text("Scheme: $it")
+                Text(
+                    text = "Scheme: $it",
+                    color = White
+                )
             }
             cardInfo.brand?.let {
-                Text("Brand: $it")
+                Text(
+                    text = "Brand: $it",
+                    color = White
+                )
             }
             cardInfo.country?.name?.let {
-                Text("Country: ${cardInfo.country.emoji ?: ""} $it")
+                Text(
+                    text = "Country: ${cardInfo.country.emoji ?: ""} $it",
+                    color = White
+                )
             }
         }
     }
