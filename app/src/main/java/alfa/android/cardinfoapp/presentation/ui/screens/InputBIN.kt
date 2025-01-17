@@ -3,6 +3,8 @@ package alfa.android.cardinfoapp.presentation.ui.screens
 import CardNumberVisual
 import alfa.android.cardinfoapp.R
 import alfa.android.cardinfoapp.presentation.theme.Typography
+import alfa.android.cardinfoapp.presentation.ui.components.ShowCardInfo
+import alfa.android.cardinfoapp.presentation.viewmodel.CardInfoViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,9 +17,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -27,19 +31,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun InputBIN(navController: NavController) {
-    var text by rememberSaveable  { mutableStateOf("") }
-    var isError by rememberSaveable  { mutableStateOf(false) }
-    var errorMessage by rememberSaveable  { mutableStateOf("") }
+fun InputBIN(
+    navController: NavController,
+    viewModel: CardInfoViewModel
+) {
+    var text by rememberSaveable { mutableStateOf("") }
+    var isError by rememberSaveable { mutableStateOf(false) }
+    var errorMessage by rememberSaveable { mutableStateOf("") }
+
+    val cardInfo by viewModel.cardInfo.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -79,15 +84,28 @@ fun InputBIN(navController: NavController) {
                 Text(
                     text = errorMessage,
                     color = Color.Red,
-                    style = TextStyle(fontSize = 14.sp)
+                    style = MaterialTheme.typography.bodySmall
+                )
+            }
+            cardInfo?.onSuccess { info ->
+                ShowCardInfo(
+                    cardInfo = info
+                )
+            }?.onFailure {
+                Text(
+                    text = it.message ?: "Error fetching card info",
+                    color = Color.Red,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(top = 8.dp)
                 )
             }
         }
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly
-        ){
+        ) {
             Button(
                 modifier = Modifier.size(width = 65.dp, height = 55.dp),
                 shape = RoundedCornerShape(5.dp),
@@ -104,6 +122,7 @@ fun InputBIN(navController: NavController) {
                     contentDescription = "back"
                 )
             }
+
             Button(
                 modifier = Modifier.size(width = 280.dp, height = 55.dp),
                 shape = RoundedCornerShape(5.dp),
@@ -114,7 +133,7 @@ fun InputBIN(navController: NavController) {
                     } else {
                         isError = false
                         errorMessage = ""
-                        // TODO: Обработать успешный ввод BIN
+                        viewModel.fetchCardInfo(text)
                     }
                 }
             ) {
@@ -126,12 +145,3 @@ fun InputBIN(navController: NavController) {
         }
     }
 }
-
-@Preview(showBackground = true, name = "Default Preview")
-@Composable
-fun InputBINPreview() {
-    val navController = rememberNavController()
-    InputBIN(navController)
-}
-
-

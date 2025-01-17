@@ -73,7 +73,7 @@ fun MainScreen(navController: NavHostController) {
                 Button(
                     modifier = Modifier.size(width = 150.dp, height = 150.dp),
                     shape = RoundedCornerShape(10.dp),
-                    onClick = { /*TODO*/ }
+                    onClick = { navController.navigate("list_history_bin") }
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.free_icon_history_1985745),
@@ -89,9 +89,3 @@ fun MainScreen(navController: NavHostController) {
         }
     }
 }
-
-//@Preview(showBackground = true, name = "Default Preview")
-//@Composable
-//fun MainScreenPreview() {
-//    MainScreen(navController = )
-//}

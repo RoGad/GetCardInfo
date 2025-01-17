@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
 }
 
@@ -70,7 +69,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Room
-    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx.v250)
+    kapt(libs.androidx.room.compiler)
 
     // Hilt
     implementation(libs.hilt.android)
@@ -83,6 +84,6 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation.compose)
 
-    //Animation
+    // Animation
     implementation(libs.accompanist.navigation.animation)
 }
