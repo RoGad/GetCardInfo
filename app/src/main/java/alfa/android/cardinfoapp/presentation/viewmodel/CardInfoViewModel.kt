@@ -4,12 +4,15 @@ import alfa.android.cardinfoapp.domain.model.CardInfo
 import alfa.android.cardinfoapp.domain.repository.CardRepository
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CardInfoViewModel(
+@HiltViewModel
+class CardInfoViewModel @Inject constructor(
     private val repository: CardRepository
 ) : ViewModel() {
     private val _cardInfo = MutableStateFlow<Result<CardInfo>?>(null)

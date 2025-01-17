@@ -5,8 +5,11 @@ import alfa.android.cardinfoapp.data.local.CardInfoEntity
 import alfa.android.cardinfoapp.data.remote.BinListApi
 import alfa.android.cardinfoapp.domain.model.CardInfo
 import alfa.android.cardinfoapp.domain.repository.CardRepository
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class CardRepositoryImpl(
+@Singleton
+class CardRepositoryImpl @Inject constructor(
     private val api: BinListApi,
     private val cardInfoDao: CardInfoDao
 ) : CardRepository {
